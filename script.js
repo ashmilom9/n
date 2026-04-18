@@ -1,28 +1,23 @@
-function showPage(pageId) {
-    // Play music logic
-    const music = document.getElementById('bgMusic');
-    if (music.paused) {
-        music.play().catch(() => {});
-    }
+const bgMusic = document.getElementById('bgMusic');
 
+// Start music on the first touch anywhere
+window.addEventListener('click', () => {
+    if (bgMusic.paused) {
+        bgMusic.play();
+    }
+}, { once: true });
+
+function showPage(pageId) {
     // Switch screens
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(pageId).classList.add('active');
 
-    // Create a burst of hearts for delight
-    for(let i = 0; i < 8; i++) {
+    // Create a burst of hearts
+    for(let i = 0; i < 6; i++) {
         createHeart();
     }
 }
 
-function updateName() {
-    const name = document.getElementById('nameInput').value;
-    document.querySelectorAll('.userName').forEach(span => {
-        span.innerText = name ? `, ${name}` : "";
-    });
-}
-
-// Interactive Heart Elements
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
@@ -39,13 +34,13 @@ function createHeart() {
     }, 2000);
 }
 
-// Also spawn a heart wherever she taps
+// Sparkle effect on every tap
 document.addEventListener('click', (e) => {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.innerHTML = '✨';
-    heart.style.left = e.clientX + 'px';
-    heart.style.top = e.clientY + 'px';
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 1000);
+    const sparkle = document.createElement('div');
+    sparkle.className = 'heart';
+    sparkle.innerHTML = '✨';
+    sparkle.style.left = e.clientX + 'px';
+    sparkle.style.top = e.clientY + 'px';
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 1000);
 });
