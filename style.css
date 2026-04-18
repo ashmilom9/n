@@ -9,7 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile touch */
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -45,13 +45,12 @@ body {
     visibility: visible;
 }
 
-/* Glassmorphism Card */
 .glass-card, .content-box {
     background: var(--glass);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 30px;
-    padding: 40px 20px;
+    padding: 45px 25px;
     width: 100%;
     max-width: 400px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -59,46 +58,32 @@ body {
     text-align: center;
 }
 
-/* Inputs & Titles */
-#nameInput {
-    background: transparent;
-    border: none;
-    border-bottom: 1.5px solid var(--accent);
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1rem;
-    color: var(--text);
-    outline: none;
-}
+.main-title { font-weight: 300; font-size: 2rem; margin-bottom: 15px; }
+.subtitle { font-size: 1rem; opacity: 0.7; margin-bottom: 35px; }
 
-.main-title { font-weight: 300; font-size: 1.8rem; margin-bottom: 10px; }
-.subtitle { font-size: 0.9rem; opacity: 0.7; margin-bottom: 30px; }
-
-/* Grid Buttons */
 .menu-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 15px;
 }
 
 .mood-btn {
     background: white;
     border: none;
-    padding: 16px;
+    padding: 18px;
     border-radius: 20px;
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    transition: all 0.2s;
+    transition: all 0.2s ease;
 }
 
 .mood-btn:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
     background: #fffafa;
 }
 
@@ -108,10 +93,9 @@ body {
     margin-top: 10px;
 }
 
-/* Animations */
 .floating-emoji {
     font-size: 4rem;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     animation: float 3s ease-in-out infinite;
 }
 
@@ -121,21 +105,21 @@ body {
 }
 
 .back-link {
-    margin-top: 25px;
+    margin-top: 30px;
     background: none;
     border: none;
     color: var(--text);
     opacity: 0.6;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     cursor: pointer;
 }
 
-/* Heart Particle */
 .heart {
     position: absolute;
     pointer-events: none;
     font-size: 20px;
     animation: fly 2s linear forwards;
+    z-index: 100;
 }
 
 @keyframes fly {
